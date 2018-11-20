@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js</title>
+	<script type="text/javascript">
+
+		function subtract() {
+			var firstvalue = fv.value;
+		    var secondvalue = sv.value;
+			r.value= firstvalue - secondvalue;		
+		}
+			function multiplication() {
+			var firstvalue = fv.value;
+		    var secondvalue = sv.value;
+			r.value= firstvalue * secondvalue;		
+		}
+			function division() {
+			var firstvalue = fv.value;
+		    var secondvalue = sv.value;
+			r.value= firstvalue / secondvalue;		
+		}
+         function addition() {
+			var firstvalue = fv.value;
+		    var secondvalue = sv.value;
+			r.value= parseInt(firstvalue) + parseInt(secondvalue);		
+		}
+
+	</script>
+</head>
+<body>
+<table align="center">
+	<tr>
+		<td colspan="2">first value:<input type="text" id="fv" name="fv"></td>
+	</tr>
+	<tr>
+		<td colspan="2">second value:<input type="text" id="sv" name="sv"></td>
+	</tr>
+	<tr>
+		<td colspan="2">Result:<input type="text" id="r" name="result"></td>
+	</tr>
+	<tr>
+		<td><button onclick="subtract()">-</button><button onclick="multiplication()" >*</button><button onclick="division()">/</button><button onclick="addition()">+</button></td>
+		
+
+	</tr>
+</table>
+</body>
+</html>

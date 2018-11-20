@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>countdowntimer</title>
+	<script>
+		var boy;
+		var a = new Audio('alarm.mp3');
+
+		function countdowntimer(){
+			if (hr.value > 0 && hr.value <= 60){
+				if(min.value == 0){
+					hr.value--;
+					min.value = 60;
+				}
+				if(min.value == ""){
+					hr.value--;
+					min.value=60;
+				}
+			}
+			if (min.value > 0 && min.value <= 60){
+				if(sec.value == 0){
+				min.value--;
+				sec.value = 60;
+				}
+	          if(sec.value == ""){
+	          	min.value--;
+	          	sec.value=60;
+	          }
+              }	         
+		if(sec.value > 0 && sec.value <= 60){
+			sec.value--;
+			boy = setTimeout( countdowntimer, 1000);
+		}
+		if (sec.value <= 9) {
+            sec.value = "0" + sec.value;
+		} 
+		if (sec.value <= 00){
+				sec.value = 0;
+		}
+		 if (hr.value <= 0 && min.value <= 0 && sec.value <= 0  ){
+	          	
+	          	a.play();
+	          	//alert("timeup");
+	          }
+	}
+	function snooze() {
+		a.pause();
+		min.value = 1;
+		countdowntimer();
+
+	}
+	function refresh() {
+		clearTimeout(boy);
+		sec.value = "00";
+		min.value = "00";
+		hr.value = "00";
+	}
+
+
+		
+	</script>
+	<style>
+	div{background-image:url('sis.jpg');
+	height:300px;
+	width: 70%;
+     margin-top:100px;
+     margin-bottom: 100px;
+     margin-left:150px;
+     border-radius:25px    
+	}	
+	input{
+		margin-top:40px;
+		margin-left:50px;
+		margin-right:10px;
+		padding-bottom: 20px;
+		text-align:center;
+     font-size:16px
+     
+	}
+
+	button{
+		margin-top:30px;
+		margin-left:150px;
+		padding:10px 10px 10px 10px;
+	}
+	</style>
+</head>
+<body>
+<div>
+     <h1 align="center">COUNTDOWN TIMER</h1>
+	<input type="text" id="hr" placeholder="--HOUR--"><input type="text" id="min" placeholder="--MINUTES--"><input type="text" id="sec" placeholder="--SECONDS--">
+     <br> <button onclick="snooze()"><img src="snooze.png"></button><button onclick="countdowntimer()"><img src="play.png"></button><button onclick="refresh()"><img src="refresh.png"></button>	
+</div>
+</body>
+</html>
